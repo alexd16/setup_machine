@@ -4,6 +4,7 @@ GEM
     diff-lcs (1.2.5)
     given_core (3.5.4)
       sorcerer (>= 0.3.7)
+    json (1.8.1)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -21,5 +22,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  json
   rspec
   rspec-given

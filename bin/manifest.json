@@ -1,0 +1,27 @@
+{
+  "scripts": [
+    "rvm",
+    "brew",
+    "packages",
+    "apps"
+  ],
+  "scriptss": [
+    {
+      "name": "fvdv",
+      "args": [
+        { 
+          "name": "ruby_versions",
+          "value": [
+            "2.1"
+          ]
+        },
+        {
+          "name": "ruby_gems",
+          "value": [
+            "rails"
+          ]
+        }
+      ]
+    }
+  ]
+}
