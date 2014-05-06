@@ -30,13 +30,22 @@ fi
 
 curl -L http://install.ohmyz.sh | sh
 
-sed -i -e '/ZSH_THEME=/ c\
+sed -i -e '/^ZSH_THEME=/ c\
 ZSH_THEME="bira"
 ' ~/.zshrc
 
-sed -i -e '/plugins=/ c\
+sed -i -e '/^plugins=/ c\
 plugins=(git rails ruby rvm heroku brew)
 ' ~/.zshrc
 
+sed -i -e '/^# Example aliases/ a\
+alias rvm-prompt=$HOME/.rvm/bin/rvm-prompt
+' ~/.zshrc
 
 echo "Installation completed."
+
+#Ruby Nodoc
+echo 'gem: --no-document' > ~/.gemrc
+
+#Pow
+curl get.pow.cx | sh
