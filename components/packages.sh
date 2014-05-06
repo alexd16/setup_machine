@@ -7,6 +7,8 @@ echo '' > $log_file
 echo "Installing postgres, node and heroku-toolbelt..."
 #Postgres
 brew install postgresql --no-python >> $log_file 2>&1
+mkdir -p ~/Library/LaunchAgents
+ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
 brew services start postgresql
 
 #Node
