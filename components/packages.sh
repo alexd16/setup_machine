@@ -1,10 +1,13 @@
 
 source ~/.bash_profile
+#Clear Log File
+log_file='packages.log'
+echo '' > $log_file
 
 echo "Installing postgres, node and heroku-toolbelt..."
 #Postgres
-brew install postgres --no-python >> $log_file 2>&1
-brew services start postgres
+brew install postgresql --no-python >> $log_file 2>&1
+brew services start postgresql
 
 #Node
 brew install node >> $log_file 2>&1
@@ -13,6 +16,8 @@ brew install node >> $log_file 2>&1
 brew install heroku-toolbelt >> $log_file 2>&1
 heroku plugins:install git://github.com/ddollar/heroku-config.git >> $log_file 2>&1
 
+#Git
+brew install git
 
 #ZSH
 chsh -s $(which zsh)

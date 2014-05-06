@@ -2,8 +2,9 @@
 source ~/.bash_profile
 if ! command -v rvm &>/dev/null; then
   log_file='rvm.log'
+  echo '' > $log_file
   ruby_versions=( 2.1 )
-  ruby_gems=( rails )
+  ruby_gems=( bundler )
   #ruby_versions=( 2.1 1.9.3 )
 
   echo 'Installing RVM'
@@ -36,6 +37,9 @@ if ! command -v rvm &>/dev/null; then
       gem install $gem --no-ri --no-rdoc >> $log_file 2>&1
       echo "$gem installed"
     done
+    echo "Configuring Bundler for faster, parallel gem installation ..."
+    number_of_cores=$(sysctl -n hw.ncpu)
+    bundle config --global jobs $((number_of_cores - 1))
   done
   rvm use ${ruby_versions[0]} --default
   rm $log_file
